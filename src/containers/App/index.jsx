@@ -18,6 +18,8 @@ export default class App extends Component {
           <IndexLink to="/">{config.app.title}</IndexLink>
           <span> | </span>
           <Link to="/about">About</Link>
+          <span> | </span>
+          <Link to="/sum">Sum</Link>
         </nav>
 
         <div className={styles.appContent}>
