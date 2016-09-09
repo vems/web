@@ -5,16 +5,16 @@ export default function clientMiddleware(client) {
         return action(dispatch, getState);
       }
 
-      const {promise, types, ...rest} = action; // eslint-disable-line no-redeclare
-      if (!promise) {
+      const {request, types, ...rest} = action; // eslint-disable-line no-redeclare
+      if (!request) {
         return next(action);
       }
 
       const [REQUEST, SUCCESS, FAILURE] = types;
       next({...rest, type: REQUEST});
 
-      const actionPromise = promise(client);
-      actionPromise.then(
+      const actionRequest = request(client);
+      actionRequest.then(
         (result) => next({...rest, result, type: SUCCESS}),
         (error) => next({...rest, error, type: FAILURE})
       ).catch((error) => {
@@ -22,7 +22,7 @@ export default function clientMiddleware(client) {
         next({...rest, error, type: FAILURE});
       });
 
-      return actionPromise;
+      return actionRequest;
     };
   };
 }

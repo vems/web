@@ -12,7 +12,8 @@ const environment = {
 module.exports = Object.assign({
   host: process.env.HOST || 'localhost',
   port: process.env.PORT,
-  apiServer: process.env.API_SERVER || 'localhost:8080',
+  apiServer: process.env.API_SERVER || '/api',
+  proxyServer: process.env.PROXY_SERVER || 'http://localhost:8080',
   app: {
     title: 'VEMS Web',
     description: 'Web frontend for VEMS',

@@ -26,7 +26,8 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
-        "PORT": 8080
+        "PORT": 8080,
+        "API_SERVER": "/api"
       }
     },
     "start-dev": {
@@ -34,7 +35,9 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
-        "PORT": 3000
+        "PORT": 3000,
+        "API_SERVER": "/api",
+        "PROXY_SERVER": "http://localhost:8080/api"
       }
     },
     "watch-client": {
